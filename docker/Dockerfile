@@ -7,7 +7,7 @@ ARG GH_RUNNER_VERSION
 ARG DOCKER_COMPOSE_VERSION="1.27.4"
 
 ENV RUNNER_NAME=""
-ENV RUNNER_WORK_DIRECTORY="_work"
+ENV RUNNER_WORK_DIRECTORY="work"
 ENV RUNNER_TOKEN=""
 ENV RUNNER_REPOSITORY_URL=""
 ENV RUNNER_LABELS=""
@@ -16,16 +16,16 @@ ENV GITHUB_ACCESS_TOKEN=""
 ENV AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache
 
 # Labels.
-LABEL maintainer="me@tcardonne.fr" \
+LABEL maintainer="tom@futurevisual.com" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.build-date=$BUILD_DATE \
     org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.name="tcardonne/github-runner" \
+    org.label-schema.name="futurevisual/github-runner" \
     org.label-schema.description="Dockerized GitHub Actions runner." \
-    org.label-schema.url="https://github.com/tcardonne/docker-github-runner" \
-    org.label-schema.vcs-url="https://github.com/tcardonne/docker-github-runner" \
-    org.label-schema.vendor="Thomas Cardonne" \
-    org.label-schema.docker.cmd="docker run -it tcardonne/github-runner:latest"
+    org.label-schema.url="https://github.com/Future-Visual/docker-github-runner" \
+    org.label-schema.vcs-url="https://github.com/Future-Visual/docker-github-runner" \
+    org.label-schema.vendor="Thomas Roberts" \
+    org.label-schema.docker.cmd="docker run -it futurevisual/github-runner:latest"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y \
