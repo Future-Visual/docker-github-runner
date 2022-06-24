@@ -86,7 +86,7 @@ RUN GH_RUNNER_VERSION=${GH_RUNNER_VERSION:-$(curl --silent "https://api.github.c
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh && dos2unix /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY container-entrypoint.sh /container-entrypoint.sh
+RUN chmod +x /container-entrypoint.sh && dos2unix /container-entrypoint.sh
+ENTRYPOINT ["/container-entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
