@@ -45,7 +45,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
         libcurl4-openssl-dev \
         openssh-client \
         git \
-        git-lfs && \
+        git-lfs \
+        dos2unix && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
@@ -86,6 +87,6 @@ RUN GH_RUNNER_VERSION=${GH_RUNNER_VERSION:-$(curl --silent "https://api.github.c
     && apt-get clean
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh && dos2unix /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
